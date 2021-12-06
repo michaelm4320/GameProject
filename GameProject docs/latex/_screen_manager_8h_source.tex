@@ -1,0 +1,44 @@
+\hypertarget{_screen_manager_8h_source}{}\doxysection{C\+:/\+Users/\+Michael/source/repos/\+Game\+Project/\+Screen\+Manager.h}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#ifndef \_SCREENMANAGER\_H}}
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#define \_SCREENMANAGER\_H}}
+\DoxyCodeLine{3 \textcolor{preprocessor}{\#include "{}StartScreen.h"{}}}
+\DoxyCodeLine{4 \textcolor{preprocessor}{\#include "{}PlayScreen.h"{}}}
+\DoxyCodeLine{5 \textcolor{preprocessor}{\#include "{}Controls.h"{}}}
+\DoxyCodeLine{6 }
+\DoxyCodeLine{7 \textcolor{keyword}{class }\mbox{\hyperlink{class_screen_manager}{ScreenManager}} \{}
+\DoxyCodeLine{8 }
+\DoxyCodeLine{9     \textcolor{keyword}{private}:}
+\DoxyCodeLine{10 }
+\DoxyCodeLine{11         \textcolor{keyword}{enum} SCREENS \{ start, play, controls \};}
+\DoxyCodeLine{12 }
+\DoxyCodeLine{13         \textcolor{keyword}{static} \mbox{\hyperlink{class_screen_manager}{ScreenManager}}* sInstance;}
+\DoxyCodeLine{14 }
+\DoxyCodeLine{15         InputManager* mInput;}
+\DoxyCodeLine{16 }
+\DoxyCodeLine{17         \mbox{\hyperlink{class_start_screen}{StartScreen}}* mStartScreen;}
+\DoxyCodeLine{18         \mbox{\hyperlink{class_play_screen}{PlayScreen}}* mPlayScreen;}
+\DoxyCodeLine{19         \mbox{\hyperlink{class_controls}{Controls}}* mControls;}
+\DoxyCodeLine{20 }
+\DoxyCodeLine{21         SCREENS mCurrentScreen;}
+\DoxyCodeLine{22 }
+\DoxyCodeLine{23 }
+\DoxyCodeLine{24     \textcolor{keyword}{public}:}
+\DoxyCodeLine{25         \textcolor{keyword}{static} \mbox{\hyperlink{class_screen_manager}{ScreenManager}}* Instance();}
+\DoxyCodeLine{26         \textcolor{keyword}{static} \textcolor{keywordtype}{void} Release();}
+\DoxyCodeLine{27         \textcolor{keywordtype}{int} mode = 1;}
+\DoxyCodeLine{28 }
+\DoxyCodeLine{29         \textcolor{keywordtype}{void} Update();}
+\DoxyCodeLine{30         \textcolor{keywordtype}{void} Render();}
+\DoxyCodeLine{31 }
+\DoxyCodeLine{32     \textcolor{keyword}{private}:}
+\DoxyCodeLine{33 }
+\DoxyCodeLine{34         \mbox{\hyperlink{class_screen_manager}{ScreenManager}}();}
+\DoxyCodeLine{35          \mbox{\hyperlink{class_screen_manager}{\string~ScreenManager}}();}
+\DoxyCodeLine{36 \};}
+\DoxyCodeLine{37 }
+\DoxyCodeLine{38 }
+\DoxyCodeLine{39 \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

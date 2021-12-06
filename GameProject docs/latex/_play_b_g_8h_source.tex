@@ -1,0 +1,62 @@
+\hypertarget{_play_b_g_8h_source}{}\doxysection{C\+:/\+Users/\+Michael/source/repos/\+Game\+Project/\+Play\+BG.h}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#ifndef \_PLAYHEALTH\_H}}
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#define \_PLAYHEALTH\_H}}
+\DoxyCodeLine{3 \textcolor{preprocessor}{\#include "{}Timer.h"{}}}
+\DoxyCodeLine{4 \textcolor{preprocessor}{\#include "{}AnimatedTexture.h"{}}}
+\DoxyCodeLine{5 \textcolor{preprocessor}{\#include "{}AudioManager.h"{}}}
+\DoxyCodeLine{6 \textcolor{preprocessor}{\#include "{}StartScreen.h"{}}}
+\DoxyCodeLine{7 \textcolor{preprocessor}{\#include <vector>}}
+\DoxyCodeLine{8 }
+\DoxyCodeLine{9 }
+\DoxyCodeLine{10 \textcolor{keyword}{class }\mbox{\hyperlink{class_play_b_g}{PlayBG}} : \textcolor{keyword}{public} GameEntity \{}
+\DoxyCodeLine{11 }
+\DoxyCodeLine{12     \textcolor{keyword}{private}:}
+\DoxyCodeLine{13         Timer* mTimer;}
+\DoxyCodeLine{14         AudioManager* mAudio;}
+\DoxyCodeLine{15 }
+\DoxyCodeLine{16         Texture* mBackground;}
+\DoxyCodeLine{17         AnimatedTexture* mAnimatedBackground;}
+\DoxyCodeLine{18 }
+\DoxyCodeLine{19         Texture* mStage;}
+\DoxyCodeLine{20         Texture* mStatus;}
+\DoxyCodeLine{21 }
+\DoxyCodeLine{22         \textcolor{keywordtype}{float} mBlinkTimer;}
+\DoxyCodeLine{23         \textcolor{keywordtype}{float} mBlinkInterval;}
+\DoxyCodeLine{24         }
+\DoxyCodeLine{25         \textcolor{keyword}{static} \textcolor{keyword}{const} \textcolor{keywordtype}{int} MAX\_MM\_TEXTURES = 2;}
+\DoxyCodeLine{26         GameEntity* mLives;}
+\DoxyCodeLine{27         Texture* mLivesTextures[MAX\_MM\_TEXTURES];}
+\DoxyCodeLine{28         \textcolor{keywordtype}{int} mTotalLives;}
+\DoxyCodeLine{29 }
+\DoxyCodeLine{30         GameEntity* mFlags;}
+\DoxyCodeLine{31         std::vector<Texture*> mFlagTextures;}
+\DoxyCodeLine{32         \textcolor{keywordtype}{int} mRemainingLevels;}
+\DoxyCodeLine{33         \textcolor{keywordtype}{int} mFlagXOffset;}
+\DoxyCodeLine{34         \textcolor{keywordtype}{float} mFlagTimer;}
+\DoxyCodeLine{35         \textcolor{keywordtype}{float} mFlagInterval;}
+\DoxyCodeLine{36 }
+\DoxyCodeLine{37         \textcolor{keyword}{private}:}
+\DoxyCodeLine{38 }
+\DoxyCodeLine{39             \textcolor{keywordtype}{void} ClearFlags();}
+\DoxyCodeLine{40             \textcolor{keywordtype}{void} AddNextFlag();}
+\DoxyCodeLine{41             \textcolor{keywordtype}{void} AddFlag(std::string filename, \textcolor{keywordtype}{float} widgth, \textcolor{keywordtype}{int} value);}
+\DoxyCodeLine{42 }
+\DoxyCodeLine{43     \textcolor{keyword}{public}:}
+\DoxyCodeLine{44 }
+\DoxyCodeLine{45         \mbox{\hyperlink{class_play_b_g}{PlayBG}}();}
+\DoxyCodeLine{46         \mbox{\hyperlink{class_play_b_g}{\string~PlayBG}}();}
+\DoxyCodeLine{47 }
+\DoxyCodeLine{48         \textcolor{keywordtype}{void} SetLives(\textcolor{keywordtype}{int} lives);}
+\DoxyCodeLine{49         \textcolor{keywordtype}{void} SetLevel(\textcolor{keywordtype}{int} level);}
+\DoxyCodeLine{50 }
+\DoxyCodeLine{51         \textcolor{keywordtype}{void} Update();}
+\DoxyCodeLine{52 }
+\DoxyCodeLine{53         \textcolor{keywordtype}{void} Render();}
+\DoxyCodeLine{54 }
+\DoxyCodeLine{55 \};}
+\DoxyCodeLine{56 }
+\DoxyCodeLine{57 \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

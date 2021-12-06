@@ -1,0 +1,64 @@
+\hypertarget{_start_screen_8h_source}{}\doxysection{C\+:/\+Users/\+Michael/source/repos/\+Game\+Project/\+Start\+Screen.h}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#ifndef \_STARTSCREEN\_H}}
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#define \_STARTSCREEN\_H}}
+\DoxyCodeLine{3 \textcolor{preprocessor}{\#include "{}AnimatedTexture.h"{}}}
+\DoxyCodeLine{4 \textcolor{preprocessor}{\#include "{}InputManager.h"{}}}
+\DoxyCodeLine{5 }
+\DoxyCodeLine{6 \textcolor{keyword}{using namespace }QuickSDL;}
+\DoxyCodeLine{7 }
+\DoxyCodeLine{8 \textcolor{keyword}{class }\mbox{\hyperlink{class_start_screen}{StartScreen}} : \textcolor{keyword}{public} GameEntity \{}
+\DoxyCodeLine{9  \textcolor{keyword}{private}:}
+\DoxyCodeLine{10   \textcolor{comment}{// Texture used to create text/images, vector2 with regards to movemement}}
+\DoxyCodeLine{11   Timer* mTimer;}
+\DoxyCodeLine{12   InputManager* mInput;}
+\DoxyCodeLine{13 }
+\DoxyCodeLine{14   \textcolor{comment}{// Top Bar Entities}}
+\DoxyCodeLine{15   GameEntity* mTopBar;}
+\DoxyCodeLine{16   Texture* mPlayerOne;}
+\DoxyCodeLine{17   Texture* mHiScore;}
+\DoxyCodeLine{18   Texture* mPlayerTwo;}
+\DoxyCodeLine{19 }
+\DoxyCodeLine{20   \textcolor{comment}{// Logo Entities}}
+\DoxyCodeLine{21   Texture* mLogo;}
+\DoxyCodeLine{22   AnimatedTexture* mAnimatedLogo;}
+\DoxyCodeLine{23 }
+\DoxyCodeLine{24   \textcolor{comment}{// Play Mode Entities}}
+\DoxyCodeLine{25   GameEntity* mPlayModes;}
+\DoxyCodeLine{26   Texture* mNewGame;}
+\DoxyCodeLine{27   Texture* mControls;}
+\DoxyCodeLine{28   Texture* mCursor;}
+\DoxyCodeLine{29   AnimatedTexture* mAnimatedCursor;}
+\DoxyCodeLine{30   Vector2 mCursorStartPos;}
+\DoxyCodeLine{31   Vector2 mCursorOffset;}
+\DoxyCodeLine{32   \textcolor{keywordtype}{int} mSelectedMode;}
+\DoxyCodeLine{33 }
+\DoxyCodeLine{34   \textcolor{comment}{// Bottom Bar Entities}}
+\DoxyCodeLine{35   GameEntity* mBotBar;}
+\DoxyCodeLine{36   Texture* mNamco;}
+\DoxyCodeLine{37   Texture* mDates;}
+\DoxyCodeLine{38   Texture* mRights;}
+\DoxyCodeLine{39 }
+\DoxyCodeLine{40   \textcolor{comment}{// Screen Animation Variables}}
+\DoxyCodeLine{41   Vector2 mAnimationStartPos;}
+\DoxyCodeLine{42   Vector2 mAnimationEndPos;}
+\DoxyCodeLine{43   \textcolor{keywordtype}{float} mAnimationTotalTime;}
+\DoxyCodeLine{44   \textcolor{keywordtype}{float} mAnimationTimer;}
+\DoxyCodeLine{45   \textcolor{keywordtype}{bool} mAnimationDone;}
+\DoxyCodeLine{46 }
+\DoxyCodeLine{47  \textcolor{keyword}{public}:}
+\DoxyCodeLine{48   \mbox{\hyperlink{class_start_screen}{StartScreen}}();}
+\DoxyCodeLine{49   \mbox{\hyperlink{class_start_screen}{\string~StartScreen}}();}
+\DoxyCodeLine{50 }
+\DoxyCodeLine{51   \textcolor{keywordtype}{int} SelectedMode();}
+\DoxyCodeLine{52   \textcolor{keywordtype}{void} ChangeSelectedMode(\textcolor{keywordtype}{int} change);}
+\DoxyCodeLine{53 }
+\DoxyCodeLine{54   \textcolor{keywordtype}{void} Update();}
+\DoxyCodeLine{55 }
+\DoxyCodeLine{56   \textcolor{keywordtype}{void} Render();}
+\DoxyCodeLine{57 \};}
+\DoxyCodeLine{58 }
+\DoxyCodeLine{59 \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}
