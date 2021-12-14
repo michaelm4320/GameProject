@@ -16,7 +16,7 @@ class Controls : public GameEntity {
 
  public:
   Controls();
-  ~Controls();
+  virtual ~Controls();
 
   void Render();
 };

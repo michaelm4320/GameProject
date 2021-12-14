@@ -20,7 +20,7 @@ class Level : public GameEntity {
 
 		float mLabelTimer;
 
-		Texture* mStageLabel;
+		//Texture* mStageLabel;
 		float mStageLabelOnScreen;
 		float mStageLabelOffScreen;
 
@@ -44,7 +44,7 @@ class Level : public GameEntity {
 
 		private:
 
-			void StartStage();
+			void StartStage() noexcept;
 			void HandleStartLabels();
 			void HandleCollisions();
 			void HandlePlayerDeath();
@@ -52,9 +52,9 @@ class Level : public GameEntity {
 	public:
 
 		Level(int stage, PlayBG* playBG, Player* player);
-		~Level();
+		virtual ~Level();
 
-		LEVEL_STATES State();
+		LEVEL_STATES State() noexcept;
 
 		void Update();
 

@@ -1,10 +1,15 @@
 #include "StartScreen.h"
 
+// C26455: Fixing the warning 'noexcept' solution is to not include 'noexcept'
+// in the first place.
+//(https://docs.microsoft.com/en-us/cpp/code-quality/c26447?view=msvc-170)
 StartScreen::StartScreen() {
   mTimer = Timer::Instance();
   mInput = InputManager::Instance();
  
   // Logo Entities
+  // C26409: Fixing warning to replace 'new' requires editing included
+  // framework library 'QuickSDL"
   mLogo = new Texture("TitleScreen.png", 0, 0, 960, 640);
   //(PNG file, x, y, width, height, frames, speed, direction for spritesheet)
   mAnimatedLogo = new AnimatedTexture("TitleScreen.png", 0, 0, 960, 640, 10, 1.25f, AnimatedTexture::vertical);
@@ -52,33 +57,34 @@ StartScreen::StartScreen() {
   Pos(mAnimationStartPos);
 }
 
+// C26432: deleting all would cause compiling error
 StartScreen::~StartScreen() {
 
   // Freeing Logo Entities
   delete mLogo;
-  mLogo = NULL;
+  mLogo = nullptr;
   delete mAnimatedLogo;
-  mAnimatedLogo = NULL;
+  mAnimatedLogo = nullptr;
 
   // Freeing Play Mode Entities
   delete mPlayModes;
-  mPlayModes = NULL;
+  mPlayModes = nullptr;
   delete mNewGame;
-  mNewGame = NULL;
+  mNewGame = nullptr;
   delete mControls;
-  mControls = NULL;
+  mControls = nullptr;
 
   delete mAnimatedCursor;
-  mAnimatedCursor = NULL;
+  mAnimatedCursor = nullptr;
 
   // Freeing Bottom Bar Entities
   delete mBotBar;
-  mBotBar = NULL;
+  mBotBar = nullptr;
   delete mRights;
-  mRights = NULL;
+  mRights = nullptr;
 }
 
-int StartScreen::SelectedMode() {
+float StartScreen::SelectedMode() noexcept {
 
     return mSelectedMode;
 }
@@ -95,6 +101,7 @@ void StartScreen::ChangeSelectedMode(int change) {
   mAnimatedCursor->Pos(mCursorStartPos + mCursorOffset * mSelectedMode);
 }
 
+// C26433: Method is not a virtual function to use override.
 void StartScreen::Update() {
   if (!mAnimationDone) {
     mAnimationTimer += mTimer->DeltaTime();
@@ -116,6 +123,7 @@ void StartScreen::Update() {
   }
 }
 
+// C26433: Method is not a virtual function to use override.
 void StartScreen::Render() {
 
   if (!mAnimationDone)

@@ -4,6 +4,7 @@
 #include "InputManager.h"
 #include "AudioManager.h"
 #include "Bullet.h"
+#include <gsl/util>
 
 using namespace QuickSDL;
 
@@ -23,7 +24,7 @@ class Player : public GameEntity {
 
 		Texture* mMan;
         AnimatedTexture* mMoveLeave;
-		bool mLeaveMoving;
+		bool mLeaveMoving = true;
 
 		AnimatedTexture* mDeathAnimation;
 
@@ -42,15 +43,15 @@ class Player : public GameEntity {
 	public:
 
 		Player();
-		~Player();
+		virtual ~Player();
 
-		void Visible(bool visible);
-		bool IsAnimating();//
+		void Visible(bool visible) noexcept;
+		bool IsAnimating() noexcept;
 
-		int Score();
-		int Lives();
+		int Score() noexcept;
+		int Lives() noexcept;
 
-		void AddScore(int change);
+		void AddScore(int change) noexcept;
 
 		void WasHit();
 

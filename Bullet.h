@@ -6,26 +6,24 @@
 using namespace QuickSDL;
 
 class Bullet : public GameEntity {
+  const int OFFSCREEN_BUFFER = 10;
 
-	const int OFFSCREEN_BUFFER = 10;
+  Timer* mTimer;
 
-	Timer* mTimer;
+  float mSpeed;
 
-	float mSpeed;
+  Texture* mTexture;
 
-	Texture* mTexture;
+ public:
+  Bullet();
+  virtual ~Bullet();
 
-	public:
+  void Fire(Vector2 pos);
+  void Reload();
 
-		Bullet();
-		~Bullet();
+  void Update();
 
-		void Fire(Vector2 pos);
-		void Reload();
-
-		void Update();
-
-		void Render();
+  void Render();
 };
 
 #endif

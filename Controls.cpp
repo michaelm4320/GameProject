@@ -1,8 +1,13 @@
 #include "Controls.h"
 
+// C26455: Fixing the warning 'noexcept' solution is to not include 'noexcept'
+// in the first place.
+//(https://docs.microsoft.com/en-us/cpp/code-quality/c26447?view=msvc-170)
 Controls::Controls() {
 
   //Control screen text entities
+  // C26409: Fixing warning to replace 'new' requires editing included framework library 'QuickSDL"
+  // C26432: Already deleted underneath deconstructor
   mControlsMove = new Texture("Arrow Keys - Move Up, Down, Left, Right", "BN6FontBold.ttf", 45, {255, 255, 255});
   mControlsMove->Parent(this);
   mControlsMove->Pos(Vector2(Graphics::Instance()->SCREEN_WIDTH * 0.5f, Graphics::Instance()->SCREEN_HEIGHT * 0.1f));
@@ -25,23 +30,27 @@ Controls::Controls() {
 
 }
 
+// C26432: deleting all would cause compiling error
 Controls::~Controls() {
+
+  // C26433: Method is not a virtual function to use override.
   delete mControlsMove;
-  mControlsMove = NULL;
+  mControlsMove = nullptr;
 
   delete mControlShoot;
-  mControlShoot = NULL;
+  mControlShoot = nullptr;
 
   delete mControlHit;
-  mControlHit = NULL;
+  mControlHit = nullptr;
 
   delete mControlLevel;
-  mControlLevel = NULL;
+  mControlLevel = nullptr;
 
   delete mControlReturn;
-  mControlReturn = NULL;
+  mControlReturn = nullptr;
 }
 
+// C26433: Method is not a virtual function to use override.
 void Controls::Render() { 
   mControlsMove->Render();
   mControlShoot->Render();

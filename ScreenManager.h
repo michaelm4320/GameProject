@@ -23,7 +23,7 @@ class ScreenManager {
 
 	public:
 		static ScreenManager* Instance();
-		static void Release();
+		static void Release() noexcept;
         int mode = 1;
 
 		void Update();

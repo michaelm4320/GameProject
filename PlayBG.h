@@ -5,6 +5,7 @@
 #include "AudioManager.h"
 #include "StartScreen.h"
 #include <vector>
+#include <gsl/util>
 
 
 class PlayBG : public GameEntity {
@@ -19,34 +20,34 @@ class PlayBG : public GameEntity {
 		Texture* mStage;
         Texture* mStatus;
 
-		float mBlinkTimer;
-		float mBlinkInterval;
+		//float mBlinkTimer;
+		//float mBlinkInterval;
 		
 		static const int MAX_MM_TEXTURES = 2;
 		GameEntity* mLives;
 		Texture* mLivesTextures[MAX_MM_TEXTURES];
-		int mTotalLives;
+		int mTotalLives = 0;
 
 		GameEntity* mFlags;
 		std::vector<Texture*> mFlagTextures;
-		int mRemainingLevels;
-		int mFlagXOffset;
+		int mRemainingLevels = 0;
+		float mFlagXOffset = 0.0;
 		float mFlagTimer;
 		float mFlagInterval;
 
 		private:
 
-			void ClearFlags();
+			void ClearFlags() noexcept;
 			void AddNextFlag();
 			void AddFlag(std::string filename, float widgth, int value);
 
 	public:
 
 		PlayBG();
-		~PlayBG();
+	    virtual ~PlayBG();
 
-		void SetLives(int lives);
-		void SetLevel(int level);
+		void SetLives(int lives) noexcept;
+		void SetLevel(int level) noexcept;
 
 		void Update();
 

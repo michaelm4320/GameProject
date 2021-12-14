@@ -1,5 +1,8 @@
 #include "Player.h"
 
+// C26455: Fixing the warning 'noexcept' solution is to not include 'noexcept'
+// in the first place.
+//(https://docs.microsoft.com/en-us/cpp/code-quality/c26447?view=msvc-170)
 Player::Player() {
 
 	mTimer = Timer::Instance();
@@ -13,6 +16,8 @@ Player::Player() {
 	mLives = 2;
 
 	//Player entity
+    // C26409: Fixing warning to replace 'new' requires editing included
+    // framework library 'QuickSDL"
 	mMan = new Texture("megaman.png");
 	mMan->Parent(this);
 	mMan->Pos(VEC2_ZERO);
@@ -35,30 +40,30 @@ Player::Player() {
 	mDeathAnimation->WrapMode(AnimatedTexture::once);
 
 	for(int i = 0; i < MAX_BULLETS; i++) {
-	
-		mBullets[i] = new Bullet();
+          gsl::at(mBullets, i) = new Bullet();
 	}
 }
 
+// C26432: deleting all would cause compiling error
 Player::~Player() {
 
-	mTimer = NULL;
-	mInput = NULL;
-	mAudio = NULL;
+	mTimer = nullptr;
+	mInput = nullptr;
+    mAudio = nullptr;
 
 	delete mMan;
-	mMan = NULL;
+    mMan = nullptr;
 
 	delete mMoveLeave;
-    mMoveLeave = NULL;
+    mMoveLeave = nullptr;
 
 	delete mDeathAnimation;
-	mDeathAnimation = NULL;
+    mDeathAnimation = nullptr;
 
 	for(int i=0; i < MAX_BULLETS; i++) {
 		
-		delete mBullets[i];
-		mBullets[i] = NULL;
+		delete gsl::at(mBullets, i);
+        gsl::at(mBullets, i) = nullptr;
 	}
 }
 
@@ -111,9 +116,9 @@ void Player::HandleFiring() {
 
 		for (int i = 0; i < MAX_BULLETS; i++) {
 			
-			if (!mBullets[i]->Active()) {
+			if (!gsl::at(mBullets, i)->Active()) {
 				
-				mBullets[i]->Fire(Pos());
+				gsl::at(mBullets, i)->Fire(Pos());
 				mAudio->PlaySFX("fire.wav");
 				break;
       }
@@ -121,27 +126,27 @@ void Player::HandleFiring() {
   }
 }
 
-void Player::Visible(bool visible) {
+void Player::Visible(bool visible) noexcept {
 
 	mVisible = visible;
 }
 
-bool Player::IsAnimating() {
+bool Player::IsAnimating() noexcept {
 	
 	return mAnimating;
 }
 
-int Player::Score() {
+int Player::Score() noexcept {
 
 	return mScore;
 }
 
-int Player::Lives() {
+int Player::Lives() noexcept {
 
 	return mLives;
 }
 
-void Player::AddScore(int change) {
+void Player::AddScore(int change) noexcept{
 
 	mScore += change;
 }
@@ -155,6 +160,7 @@ void Player::WasHit() {
 	mAudio->PlaySFX("death.wav");
 }
 
+// C26433: Method is not a virtual function to use override.
 void Player::Update() { 
 
 	if(mLeaveMoving) {
@@ -178,9 +184,10 @@ void Player::Update() {
   }
 	
 	for(int i = 0; i < MAX_BULLETS; i++)
-		mBullets[i]->Update();
+		gsl::at(mBullets, i)->Update();
 }
 
+// C26433: Method is not a virtual function to use override.
 void Player::Render() {
 
 	if(mVisible) {
@@ -195,5 +202,5 @@ void Player::Render() {
                 }
 	}
         for (int i = 0; i < MAX_BULLETS; i++) 
-			mBullets[i]->Render();
+			gsl::at(mBullets, i)->Render();
 }

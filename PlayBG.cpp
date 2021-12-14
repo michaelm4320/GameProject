@@ -1,11 +1,15 @@
 #include "PlayBG.h"
 
+// C26455: Fixing the warning 'noexcept' solution is to not include 'noexcept'
+// in the first place.
+//(https://docs.microsoft.com/en-us/cpp/code-quality/c26447?view=msvc-170)
 PlayBG::PlayBG() {
 
 	mTimer = Timer::Instance();
 	mAudio = AudioManager::Instance();
 
 	//Background stage entities
+	//C26409: Fixing warning to replace 'new' requires editing included framework library 'QuickSDL"
 	mBackground = new Texture("bgAnimated.png");
     mAnimatedBackground = new AnimatedTexture("bgAnimated.png", 0, 0, 960, 640, 10, 1.25f, AnimatedTexture::vertical);
 
@@ -27,10 +31,10 @@ PlayBG::PlayBG() {
 
 	//Player lives
 	for(int i = 0; i < MAX_MM_TEXTURES; i++) {
-	
-		mLivesTextures[i] = new Texture("Life.png");
-		mLivesTextures[i]->Parent(mLives);
-		mLivesTextures[i]->Pos(Vector2(130.0f * (i % 3), 70.f * (i / 3)));
+		
+        gsl::at(mLivesTextures, i) = new Texture("Life.png");
+        gsl::at(mLivesTextures, i)->Parent(mLives);
+        gsl::at(mLivesTextures, i)->Pos(Vector2(130.0f * (i % 3), 70.f * (i / 3)));
 	}
 
 	mFlags = new GameEntity();
@@ -42,45 +46,46 @@ PlayBG::PlayBG() {
 	
 }
 
+// C26432: deleting all would cause compiling error
 PlayBG::~PlayBG() {
 
-	mTimer = NULL;
-	mAudio = NULL;
+	mTimer = nullptr;
+	mAudio = nullptr;
 
 	delete mBackground;
-	mBackground = NULL;
+	mBackground = nullptr;
 
 	delete mAnimatedBackground;
-    mAnimatedBackground = NULL;
+	mAnimatedBackground = nullptr;
 
 	delete mStage;
-    mStage = NULL;
+	mStage = nullptr;
 
 	delete mStatus;
-    mStatus = NULL;
+	mStatus = nullptr;
 
 	delete mLives;
-	mLives = NULL;
+	mLives = nullptr;
 
 	for(int i = 0; i < MAX_MM_TEXTURES; i++) {
 	
-		delete mLivesTextures[i];
-		mLivesTextures[i] = NULL;
+		delete gsl::at(mLivesTextures, i);
+        gsl::at(mLivesTextures, i) = nullptr;
 	}
 	delete mFlags;
-	mFlags = NULL;
+        mFlags = nullptr;
 
 	ClearFlags();
 }
 
-void PlayBG::ClearFlags() {
+void PlayBG::ClearFlags() noexcept{
 
-	for (int i = 0; i < mFlagTextures.size(); i++) {  
+	for (unsigned int i = 0; i < mFlagTextures.size(); i++) {  
 	
-		delete mFlagTextures[i];
-		mFlagTextures[i] = NULL;
+		delete gsl::at(mFlagTextures, i);
+        gsl::at(mFlagTextures, i) = nullptr;
 	}
-
+	
 	mFlagTextures.clear();
 }
 
@@ -98,7 +103,7 @@ void PlayBG::AddNextFlag() {
 void PlayBG::AddFlag(std::string filename, float width, int value) {
 
 	
-	int index = mFlagTextures.size();
+	const int index = mFlagTextures.size();
 
 	if(index > 0)
 		mFlagXOffset += width * 0.5f;
@@ -106,19 +111,19 @@ void PlayBG::AddFlag(std::string filename, float width, int value) {
 	//Location of stage flag
 	mRemainingLevels -= value;
     mFlagTextures.push_back(new Texture(filename));
-	mFlagTextures[index]->Parent(mFlags);
-	mFlagTextures[index]->Pos(VEC2_RIGHT*mFlagXOffset);
+    gsl::at(mFlagTextures, index)->Parent(mFlags);
+    gsl::at(mFlagTextures, index)->Pos(VEC2_RIGHT * mFlagXOffset);
 	mFlagXOffset += width * 0.5f;
 
 	mAudio->PlaySFX("StageSE.wav");
 }
-void PlayBG::SetLives(int lives) {
+void PlayBG::SetLives(int lives) noexcept {
 
 	mTotalLives = lives;
 
 }
 
-void PlayBG::SetLevel(int level) {
+void PlayBG::SetLevel(int level) noexcept {
 
 	ClearFlags();
 
@@ -126,6 +131,7 @@ void PlayBG::SetLevel(int level) {
 	mFlagXOffset = 0.0f;
 }
 
+// C26433: Method is not a virtual function to use override.
 void PlayBG::Update() {
 
 	mAnimatedBackground->Update();
@@ -141,6 +147,7 @@ void PlayBG::Update() {
 	}
 }
 
+// C26433: Method is not a virtual function to use override.
 void PlayBG::Render() {
   
 	mBackground->Render();
@@ -151,11 +158,11 @@ void PlayBG::Render() {
 
 	for(int i = 0; i < MAX_MM_TEXTURES && i < mTotalLives; i++) {
 	
-		mLivesTextures[i]->Render();
+	gsl::at(mLivesTextures, i)->Render();
 	}
 
-	for (int i = 0; i < mFlagTextures.size(); i++) {
-          mFlagTextures[i]->Render();
+	for (unsigned int i = 0; i < mFlagTextures.size(); i++) {
+          gsl::at(mFlagTextures, i)->Render();
         }
 
 }

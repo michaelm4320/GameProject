@@ -15,6 +15,8 @@ Level::Level(int stage, PlayBG* playBG, Player* player) {
 	mStageLabelOffScreen = 1.5f;
 
 	//Battle start message entity
+    // C26409: Fixing warning to replace 'new' requires editing included
+    // framework library 'QuickSDL"
 	mReadyLabel = new Texture("battleStart.png");
 	mReadyLabel->Parent(this);
     mReadyLabel->Pos(Vector2(Graphics::Instance()->SCREEN_WIDTH * 0.5f, Graphics::Instance()->SCREEN_HEIGHT *0.3f));
@@ -30,6 +32,8 @@ Level::Level(int stage, PlayBG* playBG, Player* player) {
 	mPlayerRespawnLabelOnScreen = 2.0f;
 
 	//Game over entities
+    // C26409: Fixing warning to replace 'new' requires editing included
+    // framework library 'QuickSDL"
 	mGameOverLabel = new Texture("GAME OVER", "BN6FontBold.ttf", 75, {150, 0, 0});
 	mGameOverLabel->Parent(this);
     mGameOverLabel->Pos(Vector2(Graphics::Instance()->SCREEN_WIDTH * 0.5f, Graphics::Instance()->SCREEN_HEIGHT * 0.3f));
@@ -39,24 +43,26 @@ Level::Level(int stage, PlayBG* playBG, Player* player) {
 	mGameOverTimer = 0.0f;
 	mGameOverLabelOnScreen = 1.0f;
 
+	// C26812: Changing 'enum' to 'enum class' would cause compilation error, making all types into undeclared identifiers
 	mCurrentState = running;
 }
 
+// C26432: deleting all would cause compiling error
 Level::~Level() {
 
-	mTimer = NULL;
-	mPlayBG = NULL;
+	mTimer = nullptr;
+    mPlayBG = nullptr;
 
 	delete mReadyLabel;
-	mReadyLabel = NULL;
+    mReadyLabel = nullptr;
 
-	mPlayer = NULL;
+	mPlayer = nullptr;
 
 	delete mGameOverLabel;
-	mGameOverLabel = NULL;
+    mGameOverLabel = nullptr;
 }
 
-void Level::StartStage() {
+void Level::StartStage() noexcept {
 
 	mStageStarted = true;
 }
@@ -124,11 +130,12 @@ void Level::HandlePlayerDeath() {
 	}
 }
 
-Level::LEVEL_STATES Level::State() {
+Level::LEVEL_STATES Level::State() noexcept {
 
 	return mCurrentState;
 }
 
+// C26433: Method is not a virtual function to use override.
 void Level::Update() {
 
   if (!mStageStarted) {
@@ -151,7 +158,7 @@ void Level::Update() {
 	}
   }
 }
-
+// C26433: Method is not a virtual function to use override.
 void Level::Render() {
 
 	if(!mStageStarted) {

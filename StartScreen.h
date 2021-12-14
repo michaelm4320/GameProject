@@ -12,10 +12,10 @@ class StartScreen : public GameEntity {
   InputManager* mInput;
 
   // Top Bar Entities
-  GameEntity* mTopBar;
-  Texture* mPlayerOne;
-  Texture* mHiScore;
-  Texture* mPlayerTwo;
+  //GameEntity* mTopBar;
+  //Texture* mPlayerOne;
+  //Texture* mHiScore;
+  //Texture* mPlayerTwo;
 
   // Logo Entities
   Texture* mLogo;
@@ -25,30 +25,30 @@ class StartScreen : public GameEntity {
   GameEntity* mPlayModes;
   Texture* mNewGame;
   Texture* mControls;
-  Texture* mCursor;
+  //Texture* mCursor;
   AnimatedTexture* mAnimatedCursor;
   Vector2 mCursorStartPos;
   Vector2 mCursorOffset;
-  int mSelectedMode;
+  float mSelectedMode;
 
   // Bottom Bar Entities
   GameEntity* mBotBar;
-  Texture* mNamco;
-  Texture* mDates;
+  //Texture* mNamco;
+  //Texture* mDates;
   Texture* mRights;
 
   // Screen Animation Variables
   Vector2 mAnimationStartPos;
   Vector2 mAnimationEndPos;
-  float mAnimationTotalTime;
-  float mAnimationTimer;
-  bool mAnimationDone;
+  float mAnimationTotalTime = 0.0;
+  float mAnimationTimer = 0.0;
+  bool mAnimationDone = true;
 
  public:
   StartScreen();
-  ~StartScreen();
+  virtual ~StartScreen();
 
-  int SelectedMode();
+  float SelectedMode() noexcept;
   void ChangeSelectedMode(int change);
 
   void Update();

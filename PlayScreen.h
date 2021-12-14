@@ -18,14 +18,14 @@ class PlayScreen : public GameEntity {
 		
 		Texture* mStartLabel;
 
-		float mLevelStartTimer;
+		float mLevelStartTimer = 0.0;
 		float mLevelStartDelay;
 
-		bool mGameStarted;
+		bool mGameStarted = false;
 
 		Level* mLevel;
 		bool mLevelStarted;
-		int mCurrentStage;
+		int mCurrentStage = 0;
 
 		Player* mPlayer;
 
@@ -36,11 +36,11 @@ class PlayScreen : public GameEntity {
 	public:
 
 		PlayScreen();
-		~PlayScreen();
+		virtual ~PlayScreen();
 		
 		void StartNewGame();
 
-		bool GameOver();
+		bool GameOver() noexcept;
 
 		void Update();
 

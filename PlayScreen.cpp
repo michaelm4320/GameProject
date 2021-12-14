@@ -1,12 +1,16 @@
 #include "PlayScreen.h"
 
-
+// C26455: Fixing the warning 'noexcept' solution is to not include 'noexcept'
+// in the first place.
+//(https://docs.microsoft.com/en-us/cpp/code-quality/c26447?view=msvc-170)
 PlayScreen::PlayScreen() {
 
 	mTimer = Timer::Instance();
 	mInput = InputManager::Instance();
 	mAudio = AudioManager::Instance();
 
+    // C26409: Fixing warning to replace 'new' requires editing included
+    // framework library 'QuickSDL"
 	mPlayBG = new PlayBG();
 
 	//Ready player texture
@@ -14,29 +18,30 @@ PlayScreen::PlayScreen() {
 	mStartLabel->Parent(this);
     mStartLabel->Pos(Vector2(Graphics::Instance()->SCREEN_WIDTH * 0.5f,Graphics::Instance()->SCREEN_HEIGHT * 0.3f));
 
-	mLevel = NULL;
+	mLevel = nullptr;
 	mLevelStartDelay = 1.0f;
 	mLevelStarted = false;
 
-	mPlayer = NULL;
+	mPlayer = nullptr;
 }
 
+// C26432: deleting all would cause compiling error
 PlayScreen::~PlayScreen() {
 
-	mTimer = NULL;
-	mInput = NULL;
+	mTimer = nullptr;
+	mInput = nullptr;
 
 	delete mPlayBG;
-	mPlayBG = NULL;
+	mPlayBG = nullptr;
 
 	delete mStartLabel;
-	mStartLabel = NULL;
+	mStartLabel = nullptr;
 
 	delete mLevel;
-	mLevel = NULL;
+	mLevel = nullptr;
 
 	delete mPlayer;
-	mPlayer = NULL;
+	mPlayer = nullptr;
 }
 
 void PlayScreen::StartNextLevel() {
@@ -70,15 +75,18 @@ void PlayScreen::StartNewGame() {
 	
 }
 
-bool PlayScreen::GameOver() {
+bool PlayScreen::GameOver() noexcept {
 
 	//Game over state
 	if(!mLevelStarted)
 		return false;
 
+    // C26812: Changing 'enum' to 'enum class' would cause compilation
+    // error, making all types into undeclared identifiers
 	return (mLevel->State() == Level::gameover);
 }
 
+// C26433: Method is not a virtual function to use override.
 void PlayScreen::Update() {
 
 	if(mGameStarted) {
@@ -117,6 +125,7 @@ void PlayScreen::Update() {
 	}       
 }
 
+// C26433: Method is not a virtual function to use override.
 void PlayScreen::Render() {
 
   mPlayBG->Render();
