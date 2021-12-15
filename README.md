@@ -31,6 +31,9 @@ Game over
 
 ![Game Over](https://user-images.githubusercontent.com/62119636/143296233-5c4e8abb-795f-4572-b3f3-f7e94c3bc6f0.gif)
 
+Class Diagram
+
+![Class Diagram](https://user-images.githubusercontent.com/62119636/146261594-cec61429-8176-4734-9d01-eea6d973c869.jpg)
 
 # Getting-Started
 To run the program, you will need "SDL2 Files" and "QuickSDL."
