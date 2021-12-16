@@ -1,29 +1,36 @@
 \hypertarget{_controls_8h_source}{}\doxysection{Controls.\+h}
-
+\mbox{\hyperlink{_controls_8h}{Go to the documentation of this file.}}
 \begin{DoxyCode}{0}
-\DoxyCodeLine{1 \textcolor{preprocessor}{\#ifndef \_CONTROLS\_H}}
-\DoxyCodeLine{2 \textcolor{preprocessor}{\#define \_CONTROLS\_H}}
-\DoxyCodeLine{3 \textcolor{preprocessor}{\#include "{}InputManager.h"{}}}
-\DoxyCodeLine{4 \textcolor{preprocessor}{\#include "{}Level.h"{}}}
-\DoxyCodeLine{5 \textcolor{preprocessor}{\#include "{}PlayBG.h"{}}}
-\DoxyCodeLine{6 \textcolor{preprocessor}{\#include "{}Player.h"{}}}
-\DoxyCodeLine{7 \textcolor{preprocessor}{\#include "{}StartScreen.h"{}}}
-\DoxyCodeLine{8 }
-\DoxyCodeLine{9 \textcolor{keyword}{class }\mbox{\hyperlink{class_controls}{Controls}} : \textcolor{keyword}{public} GameEntity \{}
-\DoxyCodeLine{10  \textcolor{keyword}{private}:}
-\DoxyCodeLine{11   Texture* mControlsMove;}
-\DoxyCodeLine{12   Texture* mControlShoot;}
-\DoxyCodeLine{13   Texture* mControlHit;}
-\DoxyCodeLine{14   Texture* mControlLevel;}
-\DoxyCodeLine{15   Texture* mControlReturn;}
-\DoxyCodeLine{16 }
-\DoxyCodeLine{17  \textcolor{keyword}{public}:}
-\DoxyCodeLine{18   \mbox{\hyperlink{class_controls}{Controls}}();}
-\DoxyCodeLine{19   \mbox{\hyperlink{class_controls}{\string~Controls}}();}
-\DoxyCodeLine{20 }
-\DoxyCodeLine{21   \textcolor{keywordtype}{void} Render();}
-\DoxyCodeLine{22 \};}
-\DoxyCodeLine{23 }
-\DoxyCodeLine{24 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{1 }
+\DoxyCodeLine{10 \textcolor{preprocessor}{\#ifndef \_CONTROLS\_H}}
+\DoxyCodeLine{11 \textcolor{preprocessor}{\#define \_CONTROLS\_H}}
+\DoxyCodeLine{12 \textcolor{preprocessor}{\#include "{}InputManager.h"{}}}
+\DoxyCodeLine{13 \textcolor{preprocessor}{\#include "{}Level.h"{}}}
+\DoxyCodeLine{14 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_play_b_g_8h}{PlayBG.h}}"{}}}
+\DoxyCodeLine{15 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_player_8h}{Player.h}}"{}}}
+\DoxyCodeLine{16 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_start_screen_8h}{StartScreen.h}}"{}}}
+\DoxyCodeLine{17 }
+\DoxyCodeLine{25 \textcolor{keyword}{class }\mbox{\hyperlink{class_controls}{Controls}} : \textcolor{keyword}{public} GameEntity \{}
+\DoxyCodeLine{26   \textcolor{comment}{// LO6}}
+\DoxyCodeLine{27  \textcolor{keyword}{private}:}
+\DoxyCodeLine{33   Texture* mControlsMove;}
+\DoxyCodeLine{34 }
+\DoxyCodeLine{40   Texture* mControlShoot;}
+\DoxyCodeLine{41 }
+\DoxyCodeLine{47   Texture* mControlHit;}
+\DoxyCodeLine{48 }
+\DoxyCodeLine{54   Texture* mControlLevel;}
+\DoxyCodeLine{55 }
+\DoxyCodeLine{62   Texture* mControlReturn;}
+\DoxyCodeLine{63 }
+\DoxyCodeLine{64  \textcolor{keyword}{public}:}
+\DoxyCodeLine{72   \mbox{\hyperlink{class_controls_ab5b60bab4aa848f8bdd77694d6e81491}{Controls}}();}
+\DoxyCodeLine{73 }
+\DoxyCodeLine{81   \textcolor{keyword}{virtual} \mbox{\hyperlink{class_controls_a546f121f630c5c9db5094f6838d9fed2}{\string~Controls}}();}
+\DoxyCodeLine{82 }
+\DoxyCodeLine{90   \textcolor{keywordtype}{void} \mbox{\hyperlink{class_controls_a4068eff1326deee26eabb853d6d86d41}{Render}}();}
+\DoxyCodeLine{91 \};}
+\DoxyCodeLine{92 }
+\DoxyCodeLine{93 \textcolor{preprocessor}{\#endif}}
 
 \end{DoxyCode}

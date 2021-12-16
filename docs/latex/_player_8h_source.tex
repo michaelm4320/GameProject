@@ -1,68 +1,82 @@
 \hypertarget{_player_8h_source}{}\doxysection{Player.\+h}
-
+\mbox{\hyperlink{_player_8h}{Go to the documentation of this file.}}
 \begin{DoxyCode}{0}
-\DoxyCodeLine{1 \textcolor{preprocessor}{\#ifndef \_PLAYER\_H}}
-\DoxyCodeLine{2 \textcolor{preprocessor}{\#define \_PLAYER\_H}}
-\DoxyCodeLine{3 \textcolor{preprocessor}{\#include "{}AnimatedTexture.h"{}}}
-\DoxyCodeLine{4 \textcolor{preprocessor}{\#include "{}InputManager.h"{}}}
-\DoxyCodeLine{5 \textcolor{preprocessor}{\#include "{}AudioManager.h"{}}}
-\DoxyCodeLine{6 \textcolor{preprocessor}{\#include "{}Bullet.h"{}}}
-\DoxyCodeLine{7 }
-\DoxyCodeLine{8 \textcolor{keyword}{using namespace }QuickSDL;}
-\DoxyCodeLine{9 }
-\DoxyCodeLine{10 \textcolor{keyword}{class }\mbox{\hyperlink{class_player}{Player}} : \textcolor{keyword}{public} GameEntity \{}
-\DoxyCodeLine{11 }
-\DoxyCodeLine{12     \textcolor{keyword}{private}:}
-\DoxyCodeLine{13 }
-\DoxyCodeLine{14         Timer* mTimer;}
-\DoxyCodeLine{15         InputManager* mInput;}
-\DoxyCodeLine{16         AudioManager* mAudio;}
+\DoxyCodeLine{1 }
+\DoxyCodeLine{9 \textcolor{preprocessor}{\#ifndef \_PLAYER\_H}}
+\DoxyCodeLine{10 \textcolor{preprocessor}{\#define \_PLAYER\_H}}
+\DoxyCodeLine{11 \textcolor{preprocessor}{\#include <gsl/util>}}
+\DoxyCodeLine{12 }
+\DoxyCodeLine{13 \textcolor{preprocessor}{\#include "{}AnimatedTexture.h"{}}}
+\DoxyCodeLine{14 \textcolor{preprocessor}{\#include "{}AudioManager.h"{}}}
+\DoxyCodeLine{15 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_bullet_8h}{Bullet.h}}"{}}}
+\DoxyCodeLine{16 \textcolor{preprocessor}{\#include "{}InputManager.h"{}}}
 \DoxyCodeLine{17 }
-\DoxyCodeLine{18         \textcolor{keywordtype}{bool} mVisible;}
-\DoxyCodeLine{19         \textcolor{keywordtype}{bool} mAnimating;}
-\DoxyCodeLine{20 }
-\DoxyCodeLine{21         \textcolor{keywordtype}{int} mScore;}
-\DoxyCodeLine{22         \textcolor{keywordtype}{int} mLives;}
-\DoxyCodeLine{23 }
-\DoxyCodeLine{24         Texture* mMan;}
-\DoxyCodeLine{25         AnimatedTexture* mMoveLeave;}
-\DoxyCodeLine{26         \textcolor{keywordtype}{bool} mLeaveMoving;}
-\DoxyCodeLine{27 }
-\DoxyCodeLine{28         AnimatedTexture* mDeathAnimation;}
-\DoxyCodeLine{29 }
-\DoxyCodeLine{30         \textcolor{keywordtype}{float} mMoveSpeed;}
-\DoxyCodeLine{31         Vector2 mMoveBounds;}
-\DoxyCodeLine{32         Vector2 mMoveBounds2;}
-\DoxyCodeLine{33 }
-\DoxyCodeLine{34         \textcolor{keyword}{static} \textcolor{keyword}{const} \textcolor{keywordtype}{int} MAX\_BULLETS = 2;}
-\DoxyCodeLine{35         \mbox{\hyperlink{class_bullet}{Bullet}}* mBullets[MAX\_BULLETS];}
-\DoxyCodeLine{36 }
-\DoxyCodeLine{37     \textcolor{keyword}{private}:}
-\DoxyCodeLine{38 }
-\DoxyCodeLine{39         \textcolor{keywordtype}{void} HandleMovement();}
-\DoxyCodeLine{40         \textcolor{keywordtype}{void} HandleFiring();}
-\DoxyCodeLine{41 }
-\DoxyCodeLine{42     \textcolor{keyword}{public}:}
-\DoxyCodeLine{43 }
-\DoxyCodeLine{44         \mbox{\hyperlink{class_player}{Player}}();}
-\DoxyCodeLine{45         \mbox{\hyperlink{class_player}{\string~Player}}();}
-\DoxyCodeLine{46 }
-\DoxyCodeLine{47         \textcolor{keywordtype}{void} Visible(\textcolor{keywordtype}{bool} visible);}
-\DoxyCodeLine{48         \textcolor{keywordtype}{bool} IsAnimating();\textcolor{comment}{//}}
-\DoxyCodeLine{49 }
-\DoxyCodeLine{50         \textcolor{keywordtype}{int} Score();}
-\DoxyCodeLine{51         \textcolor{keywordtype}{int} Lives();}
-\DoxyCodeLine{52 }
-\DoxyCodeLine{53         \textcolor{keywordtype}{void} AddScore(\textcolor{keywordtype}{int} change);}
-\DoxyCodeLine{54 }
-\DoxyCodeLine{55         \textcolor{keywordtype}{void} WasHit();}
-\DoxyCodeLine{56 }
-\DoxyCodeLine{57         \textcolor{keywordtype}{void} Update();}
+\DoxyCodeLine{18 \textcolor{keyword}{using namespace }QuickSDL;}
+\DoxyCodeLine{19 }
+\DoxyCodeLine{28 \textcolor{keyword}{class }\mbox{\hyperlink{class_player}{Player}} : \textcolor{keyword}{public} GameEntity \{}
+\DoxyCodeLine{29  \textcolor{keyword}{private}:}
+\DoxyCodeLine{30 }
+\DoxyCodeLine{36   Timer* mTimer;}
+\DoxyCodeLine{37 }
+\DoxyCodeLine{43   InputManager* mInput;}
+\DoxyCodeLine{44 }
+\DoxyCodeLine{50   AudioManager* mAudio;}
+\DoxyCodeLine{51 }
+\DoxyCodeLine{57   \textcolor{keywordtype}{bool} mVisible;}
 \DoxyCodeLine{58 }
-\DoxyCodeLine{59         \textcolor{keywordtype}{void} Render();}
-\DoxyCodeLine{60 \};}
-\DoxyCodeLine{61 }
-\DoxyCodeLine{62 }
-\DoxyCodeLine{63 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{64   \textcolor{keywordtype}{bool} mAnimating;}
+\DoxyCodeLine{65 }
+\DoxyCodeLine{71   \textcolor{keywordtype}{int} mScore;}
+\DoxyCodeLine{72 }
+\DoxyCodeLine{78   \textcolor{keywordtype}{int} mLives;}
+\DoxyCodeLine{79 }
+\DoxyCodeLine{85   Texture* mMan;}
+\DoxyCodeLine{86 }
+\DoxyCodeLine{92   AnimatedTexture* mMoveLeave;}
+\DoxyCodeLine{93 }
+\DoxyCodeLine{99   \textcolor{keywordtype}{bool} mLeaveMoving = \textcolor{keyword}{true};}
+\DoxyCodeLine{100 }
+\DoxyCodeLine{106   AnimatedTexture* mDeathAnimation;}
+\DoxyCodeLine{107 }
+\DoxyCodeLine{113   \textcolor{keywordtype}{float} mMoveSpeed;}
+\DoxyCodeLine{114 }
+\DoxyCodeLine{120   Vector2 mMoveBounds;}
+\DoxyCodeLine{121 }
+\DoxyCodeLine{127   Vector2 mMoveBounds2;}
+\DoxyCodeLine{128 }
+\DoxyCodeLine{134   \textcolor{keyword}{static} \textcolor{keyword}{const} \textcolor{keywordtype}{int} MAX\_BULLETS = 2;}
+\DoxyCodeLine{135 }
+\DoxyCodeLine{141   \mbox{\hyperlink{class_bullet}{Bullet}}* mBullets[MAX\_BULLETS];}
+\DoxyCodeLine{142 }
+\DoxyCodeLine{143  \textcolor{keyword}{private}:}
+\DoxyCodeLine{144 }
+\DoxyCodeLine{152   \textcolor{keywordtype}{void} HandleMovement();}
+\DoxyCodeLine{153 }
+\DoxyCodeLine{161   \textcolor{keywordtype}{void} HandleFiring();}
+\DoxyCodeLine{162 }
+\DoxyCodeLine{163  \textcolor{keyword}{public}:}
+\DoxyCodeLine{164 }
+\DoxyCodeLine{172   \mbox{\hyperlink{class_player_affe0cc3cb714f6deb4e62f0c0d3f1fd8}{Player}}();}
+\DoxyCodeLine{173 }
+\DoxyCodeLine{181   \textcolor{keyword}{virtual} \mbox{\hyperlink{class_player_a749d2c00e1fe0f5c2746f7505a58c062}{\string~Player}}();}
+\DoxyCodeLine{182 }
+\DoxyCodeLine{190   \textcolor{keywordtype}{void} \mbox{\hyperlink{class_player_ad41d4cafabf52b394f03437297acb2d5}{Visible}}(\textcolor{keywordtype}{bool} visible) \textcolor{keyword}{noexcept};}
+\DoxyCodeLine{191 }
+\DoxyCodeLine{199   \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_player_aeb39196bc8af3b8538120315377c45a1}{IsAnimating}}() \textcolor{keyword}{noexcept};}
+\DoxyCodeLine{200 }
+\DoxyCodeLine{208   \textcolor{keywordtype}{int} \mbox{\hyperlink{class_player_a1ad4f100a60536ab16af7a46834dc1ab}{Score}}() \textcolor{keyword}{noexcept};}
+\DoxyCodeLine{209 }
+\DoxyCodeLine{217   \textcolor{keywordtype}{int} \mbox{\hyperlink{class_player_a350d01cf2f7fa56c8f7ac64efa479c2d}{Lives}}() \textcolor{keyword}{noexcept};}
+\DoxyCodeLine{218 }
+\DoxyCodeLine{226   \textcolor{keywordtype}{void} \mbox{\hyperlink{class_player_ab76ccaa34c6ba66abd50a4af6c178b9e}{AddScore}}(\textcolor{keywordtype}{int} change) \textcolor{keyword}{noexcept};}
+\DoxyCodeLine{227 }
+\DoxyCodeLine{235   \textcolor{keywordtype}{void} \mbox{\hyperlink{class_player_a91ad882c863de0d7a74a87a76e7adf10}{WasHit}}();}
+\DoxyCodeLine{236 }
+\DoxyCodeLine{244   \textcolor{keywordtype}{void} \mbox{\hyperlink{class_player_a05b60cac1922c5be5c1be16baffa4497}{Update}}();}
+\DoxyCodeLine{245 }
+\DoxyCodeLine{253   \textcolor{keywordtype}{void} \mbox{\hyperlink{class_player_ad141ea844ac82f2447d986d964d1e8a7}{Render}}();}
+\DoxyCodeLine{254 \};}
+\DoxyCodeLine{255 }
+\DoxyCodeLine{256 \textcolor{preprocessor}{\#endif}}
 
 \end{DoxyCode}

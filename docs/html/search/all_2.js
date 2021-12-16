@@ -1,4 +1,6 @@
 var searchData=
 [
-  ['integration_2dgame_2dproject_0',['Integration-Game-Project',['../md__r_e_a_d_m_e.html',1,'']]]
+  ['changeselectedmode_0',['ChangeSelectedMode',['../class_start_screen.html#aaf6f96b7ae1af67ea0d0f6e6b774ffa7',1,'StartScreen']]],
+  ['controls_1',['Controls',['../class_controls.html',1,'Controls'],['../class_controls.html#ab5b60bab4aa848f8bdd77694d6e81491',1,'Controls::Controls()']]],
+  ['controls_2eh_2',['Controls.h',['../_controls_8h.html',1,'']]]
 ];

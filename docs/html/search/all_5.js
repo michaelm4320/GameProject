@@ -1,5 +1,6 @@
 var searchData=
 [
-  ['screenmanager_0',['ScreenManager',['../class_screen_manager.html',1,'']]],
-  ['startscreen_1',['StartScreen',['../class_start_screen.html',1,'']]]
+  ['instance_0',['Instance',['../class_screen_manager.html#a41cb13f4b15ca773837bdb4aead0fbb8',1,'ScreenManager']]],
+  ['integration_2dgame_2dproject_1',['Integration-Game-Project',['../md__r_e_a_d_m_e.html',1,'']]],
+  ['isanimating_2',['IsAnimating',['../class_player.html#aeb39196bc8af3b8538120315377c45a1',1,'Player']]]
 ];

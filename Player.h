@@ -1,64 +1,242 @@
+/** @file Player.h
+ *  @brief Header file for player
+ *
+ * This program is responsible handling the player within a level.
+ *
+ *  @author Michael Martinez
+ *  @bug No known bugs.
+ */
 #ifndef _PLAYER_H
 #define _PLAYER_H
+#include <gsl/util>
+
 #include "AnimatedTexture.h"
-#include "InputManager.h"
 #include "AudioManager.h"
 #include "Bullet.h"
-#include <gsl/util>
+#include "InputManager.h"
 
 using namespace QuickSDL;
 
+/**
+ * @brief The Player class
+ * @author Michael Martinez
+ *
+ * Player class inheriting from GameEntity which is used to program player
+ * interaction with the level itself.
+ *
+ */
 class Player : public GameEntity {
+ private:
+  /** @brief Timer variable
+   *
+   * Used to keep track of time between resets.
+   *
+   */
+  Timer* mTimer;
 
-	private:
+  /** @brief Input variable
+   *
+   * Used to handle keyboard inputs.
+   *
+   */
+  InputManager* mInput;
 
-		Timer* mTimer;
-		InputManager* mInput;
-		AudioManager* mAudio;
+  /** @brief Audio variable
+   *
+   * Used to add audio for the game.
+   *
+   */
+  AudioManager* mAudio;
 
-		bool mVisible;
-		bool mAnimating;
+  /** @brief Visible variable
+   *
+   * Used to check for player visibility.
+   *
+   */
+  bool mVisible;
 
-		int mScore;
-		int mLives;
+  /** @brief Animating variable
+   *
+   * Used to check if entity is animating.
+   *
+   */
+  bool mAnimating;
 
-		Texture* mMan;
-        AnimatedTexture* mMoveLeave;
-		bool mLeaveMoving = true;
+  /** @brief Score variable
+   *
+   * Used to keep track of player score.
+   *
+   */
+  int mScore;
 
-		AnimatedTexture* mDeathAnimation;
+  /** @brief Lives variable
+   *
+   * Used to keep track of current number of player lives.
+   *
+   */
+  int mLives;
 
-		float mMoveSpeed;
-		Vector2 mMoveBounds;
-        Vector2 mMoveBounds2;
+  /** @brief Megaman texture
+   *
+   * Creates texture of megaman for player.
+   *
+   */
+  Texture* mMan;
 
-		static const int MAX_BULLETS = 2;
-		Bullet* mBullets[MAX_BULLETS];
+  /** @brief Movement leaving animation texture
+   *
+   * An animated texture used for whenever megaman leaves a tile.
+   *
+   */
+  AnimatedTexture* mMoveLeave;
 
-	private:
+  /** @brief Leave movement variable
+   *
+   * Used to see if megaman is currently leaving to a different tile.
+   *
+   */
+  bool mLeaveMoving = true;
 
-		void HandleMovement();
-		void HandleFiring();
+  /** @brief Death animation variable
+   *
+   * Animates player dying animation when damaged.
+   *
+   */
+  AnimatedTexture* mDeathAnimation;
 
-	public:
+  /** @brief Movement speed variable
+   *
+   * The speed for how fast the player travels.
+   *
+   */
+  float mMoveSpeed;
 
-		Player();
-		virtual ~Player();
+  /** @brief Movement bound position variable
+   *
+   * Program that bounds megaman to a specific space for movement.
+   *
+   */
+  Vector2 mMoveBounds;
 
-		void Visible(bool visible) noexcept;
-		bool IsAnimating() noexcept;
+  /** @brief Movement bound position variable
+   *
+   * Program that bounds megaman to a specific space for movement.
+   *
+   */
+  Vector2 mMoveBounds2;
 
-		int Score() noexcept;
-		int Lives() noexcept;
+  /** @brief Max bullets variable
+   *
+   * Used for the maximum number of bullets the player can have.
+   *
+   */
+  static const int MAX_BULLETS = 2;
 
-		void AddScore(int change) noexcept;
+  /** @brief mBullets array
+   *
+   * Used to loop through the array to create bullets.
+   *
+   */
+  Bullet* mBullets[MAX_BULLETS];
 
-		void WasHit();
+ private:
+  /** @brief Movement function
+   *
+   * Handles players input for movement.
+   *
+   *  @return void
+   */
+  void HandleMovement();
 
-		void Update();
+  /** @brief Handle firing function
+   *
+   * Handles players input for firing bullets.
+   *
+   *  @return void
+   */
+  void HandleFiring();
 
-		void Render();
+ public:
+  /** @brief Constructor
+   *
+   * Creating textures for the player as well as handling lives and player
+   * bullets.
+   *
+   */
+  Player();
+
+  /** @brief Deconstructor
+   *
+   * Freeing all entities
+   *
+   */
+  virtual ~Player();
+
+  /** @brief Visible function
+   *
+   * Used to check if visible for rendering textures.
+   *
+   *  @param visible
+   *  @return void
+   */
+  void Visible(bool visible) noexcept;
+
+  /** @brief Animating function
+   *
+   * Used to check if current animation is in progress
+   *
+   *  @return bool
+   */
+  bool IsAnimating() noexcept;
+
+  /** @brief Score function
+   *
+   * Used to keep track of player score.
+   *
+   *  @return int
+   */
+  int Score() noexcept;
+
+  /** @brief Lives function
+   *
+   * Used to keep track of players current lives
+   *
+   *  @return int
+   */
+  int Lives() noexcept;
+
+  /** @brief AddScore
+   *
+   * Handles changes to player score.
+   *
+   *  @param change
+   *  @return void
+   */
+  void AddScore(int change) noexcept;
+
+  /** @brief Hit function
+   *
+   * Plays the hit animation for when the player gets damaged.
+   *
+   *  @return void
+   */
+  void WasHit();
+
+  /** @brief Update function
+   *
+   * Updates player firing and movement textures.
+   *
+   *  @return void
+   */
+  void Update();
+
+  /** @brief Render function
+   *
+   * Renders all textures.
+   *
+   *  @return void
+   */
+  void Render();
 };
-
 
 #endif

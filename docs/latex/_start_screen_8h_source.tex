@@ -1,64 +1,73 @@
 \hypertarget{_start_screen_8h_source}{}\doxysection{Start\+Screen.\+h}
-
+\mbox{\hyperlink{_start_screen_8h}{Go to the documentation of this file.}}
 \begin{DoxyCode}{0}
-\DoxyCodeLine{1 \textcolor{preprocessor}{\#ifndef \_STARTSCREEN\_H}}
-\DoxyCodeLine{2 \textcolor{preprocessor}{\#define \_STARTSCREEN\_H}}
-\DoxyCodeLine{3 \textcolor{preprocessor}{\#include "{}AnimatedTexture.h"{}}}
-\DoxyCodeLine{4 \textcolor{preprocessor}{\#include "{}InputManager.h"{}}}
-\DoxyCodeLine{5 }
-\DoxyCodeLine{6 \textcolor{keyword}{using namespace }QuickSDL;}
-\DoxyCodeLine{7 }
-\DoxyCodeLine{8 \textcolor{keyword}{class }\mbox{\hyperlink{class_start_screen}{StartScreen}} : \textcolor{keyword}{public} GameEntity \{}
-\DoxyCodeLine{9  \textcolor{keyword}{private}:}
-\DoxyCodeLine{10   \textcolor{comment}{// Texture used to create text/images, vector2 with regards to movemement}}
-\DoxyCodeLine{11   Timer* mTimer;}
-\DoxyCodeLine{12   InputManager* mInput;}
+\DoxyCodeLine{1 }
+\DoxyCodeLine{9 \textcolor{preprocessor}{\#ifndef \_STARTSCREEN\_H}}
+\DoxyCodeLine{10 \textcolor{preprocessor}{\#define \_STARTSCREEN\_H}}
+\DoxyCodeLine{11 \textcolor{preprocessor}{\#include "{}AnimatedTexture.h"{}}}
+\DoxyCodeLine{12 \textcolor{preprocessor}{\#include "{}InputManager.h"{}}}
 \DoxyCodeLine{13 }
-\DoxyCodeLine{14   \textcolor{comment}{// Top Bar Entities}}
-\DoxyCodeLine{15   GameEntity* mTopBar;}
-\DoxyCodeLine{16   Texture* mPlayerOne;}
-\DoxyCodeLine{17   Texture* mHiScore;}
-\DoxyCodeLine{18   Texture* mPlayerTwo;}
-\DoxyCodeLine{19 }
-\DoxyCodeLine{20   \textcolor{comment}{// Logo Entities}}
-\DoxyCodeLine{21   Texture* mLogo;}
-\DoxyCodeLine{22   AnimatedTexture* mAnimatedLogo;}
-\DoxyCodeLine{23 }
-\DoxyCodeLine{24   \textcolor{comment}{// Play Mode Entities}}
-\DoxyCodeLine{25   GameEntity* mPlayModes;}
-\DoxyCodeLine{26   Texture* mNewGame;}
-\DoxyCodeLine{27   Texture* mControls;}
-\DoxyCodeLine{28   Texture* mCursor;}
-\DoxyCodeLine{29   AnimatedTexture* mAnimatedCursor;}
-\DoxyCodeLine{30   Vector2 mCursorStartPos;}
-\DoxyCodeLine{31   Vector2 mCursorOffset;}
-\DoxyCodeLine{32   \textcolor{keywordtype}{int} mSelectedMode;}
+\DoxyCodeLine{14 \textcolor{keyword}{using namespace }QuickSDL;}
+\DoxyCodeLine{15 }
+\DoxyCodeLine{23 \textcolor{keyword}{class }\mbox{\hyperlink{class_start_screen}{StartScreen}} : \textcolor{keyword}{public} GameEntity \{}
+\DoxyCodeLine{24  \textcolor{keyword}{private}:}
+\DoxyCodeLine{25 }
+\DoxyCodeLine{31   \textcolor{comment}{// Texture used to create text/images, vector2 with regards to movemement}}
+\DoxyCodeLine{32   Timer* mTimer;}
 \DoxyCodeLine{33 }
-\DoxyCodeLine{34   \textcolor{comment}{// Bottom Bar Entities}}
-\DoxyCodeLine{35   GameEntity* mBotBar;}
-\DoxyCodeLine{36   Texture* mNamco;}
-\DoxyCodeLine{37   Texture* mDates;}
-\DoxyCodeLine{38   Texture* mRights;}
-\DoxyCodeLine{39 }
-\DoxyCodeLine{40   \textcolor{comment}{// Screen Animation Variables}}
-\DoxyCodeLine{41   Vector2 mAnimationStartPos;}
-\DoxyCodeLine{42   Vector2 mAnimationEndPos;}
-\DoxyCodeLine{43   \textcolor{keywordtype}{float} mAnimationTotalTime;}
-\DoxyCodeLine{44   \textcolor{keywordtype}{float} mAnimationTimer;}
-\DoxyCodeLine{45   \textcolor{keywordtype}{bool} mAnimationDone;}
-\DoxyCodeLine{46 }
-\DoxyCodeLine{47  \textcolor{keyword}{public}:}
-\DoxyCodeLine{48   \mbox{\hyperlink{class_start_screen}{StartScreen}}();}
-\DoxyCodeLine{49   \mbox{\hyperlink{class_start_screen}{\string~StartScreen}}();}
-\DoxyCodeLine{50 }
-\DoxyCodeLine{51   \textcolor{keywordtype}{int} SelectedMode();}
-\DoxyCodeLine{52   \textcolor{keywordtype}{void} ChangeSelectedMode(\textcolor{keywordtype}{int} change);}
-\DoxyCodeLine{53 }
-\DoxyCodeLine{54   \textcolor{keywordtype}{void} Update();}
+\DoxyCodeLine{39   InputManager* mInput;}
+\DoxyCodeLine{40 }
+\DoxyCodeLine{46   \textcolor{comment}{// Logo Entities}}
+\DoxyCodeLine{47   Texture* mLogo;}
+\DoxyCodeLine{48 }
+\DoxyCodeLine{54   AnimatedTexture* mAnimatedLogo;}
 \DoxyCodeLine{55 }
-\DoxyCodeLine{56   \textcolor{keywordtype}{void} Render();}
-\DoxyCodeLine{57 \};}
-\DoxyCodeLine{58 }
-\DoxyCodeLine{59 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{61   \textcolor{comment}{// Play Mode Entities}}
+\DoxyCodeLine{62   GameEntity* mPlayModes;}
+\DoxyCodeLine{63 }
+\DoxyCodeLine{69   Texture* mNewGame;}
+\DoxyCodeLine{70 }
+\DoxyCodeLine{76   Texture* mControls;}
+\DoxyCodeLine{77 }
+\DoxyCodeLine{83   AnimatedTexture* mAnimatedCursor;}
+\DoxyCodeLine{84 }
+\DoxyCodeLine{90   Vector2 mCursorStartPos;}
+\DoxyCodeLine{91 }
+\DoxyCodeLine{97   Vector2 mCursorOffset;}
+\DoxyCodeLine{98 }
+\DoxyCodeLine{104   \textcolor{keywordtype}{float} mSelectedMode;}
+\DoxyCodeLine{105 }
+\DoxyCodeLine{111   \textcolor{comment}{// Bottom Bar Entities}}
+\DoxyCodeLine{112   GameEntity* mBotBar;}
+\DoxyCodeLine{113 }
+\DoxyCodeLine{119   Texture* mRights;}
+\DoxyCodeLine{120 }
+\DoxyCodeLine{126   \textcolor{comment}{// Screen Animation Variables}}
+\DoxyCodeLine{127   Vector2 mAnimationStartPos;}
+\DoxyCodeLine{128 }
+\DoxyCodeLine{134   Vector2 mAnimationEndPos;}
+\DoxyCodeLine{135 }
+\DoxyCodeLine{141   \textcolor{keywordtype}{float} mAnimationTotalTime = 0.0;}
+\DoxyCodeLine{142 }
+\DoxyCodeLine{148   \textcolor{keywordtype}{float} mAnimationTimer = 0.0;}
+\DoxyCodeLine{149 }
+\DoxyCodeLine{155   \textcolor{keywordtype}{bool} mAnimationDone = \textcolor{keyword}{true};}
+\DoxyCodeLine{156 }
+\DoxyCodeLine{157  \textcolor{keyword}{public}:}
+\DoxyCodeLine{158 }
+\DoxyCodeLine{166   \mbox{\hyperlink{class_start_screen_a9ee5b079c8fa61312af9028c6c0e19ba}{StartScreen}}();}
+\DoxyCodeLine{167 }
+\DoxyCodeLine{175   \textcolor{keyword}{virtual} \mbox{\hyperlink{class_start_screen_afb1b54b9d5cda32ea7e9e1c5cf8b9300}{\string~StartScreen}}();}
+\DoxyCodeLine{176 }
+\DoxyCodeLine{184   \textcolor{keywordtype}{float} \mbox{\hyperlink{class_start_screen_a30022330e151aa14fca791f16f99385e}{SelectedMode}}() \textcolor{keyword}{noexcept};}
+\DoxyCodeLine{185 }
+\DoxyCodeLine{193   \textcolor{keywordtype}{void} \mbox{\hyperlink{class_start_screen_aaf6f96b7ae1af67ea0d0f6e6b774ffa7}{ChangeSelectedMode}}(\textcolor{keywordtype}{int} change);}
+\DoxyCodeLine{194 }
+\DoxyCodeLine{202   \textcolor{keywordtype}{void} \mbox{\hyperlink{class_start_screen_a83834fc7601f00f0d5e702112ac61231}{Update}}();}
+\DoxyCodeLine{203 }
+\DoxyCodeLine{211   \textcolor{keywordtype}{void} \mbox{\hyperlink{class_start_screen_a97f86edb95e6f4831d3c802b7ad2ddc3}{Render}}();}
+\DoxyCodeLine{212 \};}
+\DoxyCodeLine{213 }
+\DoxyCodeLine{214 \textcolor{preprocessor}{\#endif}}
 
 \end{DoxyCode}

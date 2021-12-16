@@ -1,55 +1,58 @@
 \hypertarget{_play_screen_8h_source}{}\doxysection{Play\+Screen.\+h}
-
+\mbox{\hyperlink{_play_screen_8h}{Go to the documentation of this file.}}
 \begin{DoxyCode}{0}
-\DoxyCodeLine{1 \textcolor{preprocessor}{\#ifndef \_PLAYSCREEN\_H}}
-\DoxyCodeLine{2 \textcolor{preprocessor}{\#define \_PLAYSCREEN\_H}}
-\DoxyCodeLine{3 \textcolor{preprocessor}{\#include "{}InputManager.h"{}}}
-\DoxyCodeLine{4 \textcolor{preprocessor}{\#include "{}StartScreen.h"{}}}
-\DoxyCodeLine{5 \textcolor{preprocessor}{\#include "{}PlayBG.h"{}}}
-\DoxyCodeLine{6 \textcolor{preprocessor}{\#include "{}Level.h"{}}}
-\DoxyCodeLine{7 \textcolor{preprocessor}{\#include "{}Player.h"{}}}
-\DoxyCodeLine{8 }
-\DoxyCodeLine{9 \textcolor{keyword}{class }\mbox{\hyperlink{class_play_screen}{PlayScreen}} : \textcolor{keyword}{public} GameEntity \{}
-\DoxyCodeLine{10 }
-\DoxyCodeLine{11     \textcolor{keyword}{private}:}
-\DoxyCodeLine{12 }
-\DoxyCodeLine{13         Timer* mTimer;}
-\DoxyCodeLine{14         InputManager* mInput;}
-\DoxyCodeLine{15         AudioManager* mAudio;}
-\DoxyCodeLine{16         }
-\DoxyCodeLine{17         \mbox{\hyperlink{class_play_b_g}{PlayBG}}* mPlayBG;}
-\DoxyCodeLine{18         }
-\DoxyCodeLine{19         Texture* mStartLabel;}
-\DoxyCodeLine{20 }
-\DoxyCodeLine{21         \textcolor{keywordtype}{float} mLevelStartTimer;}
-\DoxyCodeLine{22         \textcolor{keywordtype}{float} mLevelStartDelay;}
-\DoxyCodeLine{23 }
-\DoxyCodeLine{24         \textcolor{keywordtype}{bool} mGameStarted;}
-\DoxyCodeLine{25 }
-\DoxyCodeLine{26         \mbox{\hyperlink{class_level}{Level}}* mLevel;}
-\DoxyCodeLine{27         \textcolor{keywordtype}{bool} mLevelStarted;}
-\DoxyCodeLine{28         \textcolor{keywordtype}{int} mCurrentStage;}
-\DoxyCodeLine{29 }
-\DoxyCodeLine{30         \mbox{\hyperlink{class_player}{Player}}* mPlayer;}
-\DoxyCodeLine{31 }
-\DoxyCodeLine{32     \textcolor{keyword}{private}:}
+\DoxyCodeLine{1 }
+\DoxyCodeLine{9 \textcolor{preprocessor}{\#ifndef \_PLAYSCREEN\_H}}
+\DoxyCodeLine{10 \textcolor{preprocessor}{\#define \_PLAYSCREEN\_H}}
+\DoxyCodeLine{11 \textcolor{preprocessor}{\#include "{}InputManager.h"{}}}
+\DoxyCodeLine{12 \textcolor{preprocessor}{\#include "{}Level.h"{}}}
+\DoxyCodeLine{13 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_play_b_g_8h}{PlayBG.h}}"{}}}
+\DoxyCodeLine{14 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_player_8h}{Player.h}}"{}}}
+\DoxyCodeLine{15 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_start_screen_8h}{StartScreen.h}}"{}}}
+\DoxyCodeLine{16 }
+\DoxyCodeLine{25 \textcolor{keyword}{class }\mbox{\hyperlink{class_play_screen}{PlayScreen}} : \textcolor{keyword}{public} GameEntity \{}
+\DoxyCodeLine{26  \textcolor{keyword}{private}:}
+\DoxyCodeLine{32   Timer* mTimer;}
 \DoxyCodeLine{33 }
-\DoxyCodeLine{34         \textcolor{keywordtype}{void} StartNextLevel();}
-\DoxyCodeLine{35 }
-\DoxyCodeLine{36     \textcolor{keyword}{public}:}
-\DoxyCodeLine{37 }
-\DoxyCodeLine{38         \mbox{\hyperlink{class_play_screen}{PlayScreen}}();}
-\DoxyCodeLine{39         \mbox{\hyperlink{class_play_screen}{\string~PlayScreen}}();}
-\DoxyCodeLine{40         }
-\DoxyCodeLine{41         \textcolor{keywordtype}{void} StartNewGame();}
-\DoxyCodeLine{42 }
-\DoxyCodeLine{43         \textcolor{keywordtype}{bool} GameOver();}
-\DoxyCodeLine{44 }
-\DoxyCodeLine{45         \textcolor{keywordtype}{void} Update();}
-\DoxyCodeLine{46 }
-\DoxyCodeLine{47         \textcolor{keywordtype}{void} Render();}
-\DoxyCodeLine{48 \};}
-\DoxyCodeLine{49 }
-\DoxyCodeLine{50 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{39   InputManager* mInput;}
+\DoxyCodeLine{40 }
+\DoxyCodeLine{46   AudioManager* mAudio;}
+\DoxyCodeLine{47 }
+\DoxyCodeLine{53   \mbox{\hyperlink{class_play_b_g}{PlayBG}}* mPlayBG;}
+\DoxyCodeLine{54 }
+\DoxyCodeLine{60   Texture* mStartLabel;}
+\DoxyCodeLine{61 }
+\DoxyCodeLine{67   \textcolor{keywordtype}{float} mLevelStartTimer = 0.0;}
+\DoxyCodeLine{68 }
+\DoxyCodeLine{74   \textcolor{keywordtype}{float} mLevelStartDelay;}
+\DoxyCodeLine{75 }
+\DoxyCodeLine{81   \textcolor{keywordtype}{bool} mGameStarted = \textcolor{keyword}{false};}
+\DoxyCodeLine{82 }
+\DoxyCodeLine{88   \mbox{\hyperlink{class_level}{Level}}* mLevel;}
+\DoxyCodeLine{89 }
+\DoxyCodeLine{95   \textcolor{keywordtype}{bool} mLevelStarted;}
+\DoxyCodeLine{96 }
+\DoxyCodeLine{102   \textcolor{keywordtype}{int} mCurrentStage = 0;}
+\DoxyCodeLine{103 }
+\DoxyCodeLine{109   \mbox{\hyperlink{class_player}{Player}}* mPlayer;}
+\DoxyCodeLine{110 }
+\DoxyCodeLine{111  \textcolor{keyword}{private}:}
+\DoxyCodeLine{119   \textcolor{keywordtype}{void} StartNextLevel();}
+\DoxyCodeLine{120 }
+\DoxyCodeLine{121  \textcolor{keyword}{public}:}
+\DoxyCodeLine{129   \mbox{\hyperlink{class_play_screen_ab4f275430d0fa86c72c8149e6b9a78dc}{PlayScreen}}();}
+\DoxyCodeLine{130 }
+\DoxyCodeLine{138   \textcolor{keyword}{virtual} \mbox{\hyperlink{class_play_screen_aa4b4eaa559ba4578b85e4ac8d017f41c}{\string~PlayScreen}}();}
+\DoxyCodeLine{139 }
+\DoxyCodeLine{147   \textcolor{keywordtype}{void} \mbox{\hyperlink{class_play_screen_a90bccd6eb694c4a878dee9e1fc5f7f3d}{StartNewGame}}();}
+\DoxyCodeLine{148 }
+\DoxyCodeLine{156   \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_play_screen_add8f98a7bff9827fbe848713860341d5}{GameOver}}() \textcolor{keyword}{noexcept};}
+\DoxyCodeLine{157 }
+\DoxyCodeLine{165   \textcolor{keywordtype}{void} \mbox{\hyperlink{class_play_screen_ae0c7f15c911c1b232731b1415a3fddaa}{Update}}();}
+\DoxyCodeLine{166 }
+\DoxyCodeLine{174   \textcolor{keywordtype}{void} \mbox{\hyperlink{class_play_screen_a65afdbafa19f0d41a1e7398d785c3255}{Render}}();}
+\DoxyCodeLine{175 \};}
+\DoxyCodeLine{176 }
+\DoxyCodeLine{177 \textcolor{preprocessor}{\#endif}}
 
 \end{DoxyCode}

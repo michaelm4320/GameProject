@@ -32,10 +32,17 @@ var NAVTREE =
       [ "Author", "md__r_e_a_d_m_e.html#autotoc_md4", null ],
       [ "Acknowledgments", "md__r_e_a_d_m_e.html#autotoc_md5", null ]
     ] ],
+    [ "Bug List", "bug.html", null ],
     [ "Classes", "annotated.html", [
       [ "Class List", "annotated.html", "annotated_dup" ],
       [ "Class Index", "classes.html", null ],
-      [ "Class Hierarchy", "hierarchy.html", "hierarchy" ]
+      [ "Class Hierarchy", "hierarchy.html", "hierarchy" ],
+      [ "Class Members", "functions.html", [
+        [ "All", "functions.html", null ],
+        [ "Functions", "functions_func.html", null ],
+        [ "Variables", "functions_vars.html", null ],
+        [ "Enumerations", "functions_enum.html", null ]
+      ] ]
     ] ],
     [ "Files", "files.html", [
       [ "File List", "files.html", "files_dup" ]
@@ -45,7 +52,7 @@ var NAVTREE =
 
 var NAVTREEINDEX =
 [
-"_bullet_8h_source.html"
+"_bullet_8h.html"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

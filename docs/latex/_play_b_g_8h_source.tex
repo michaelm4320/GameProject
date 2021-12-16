@@ -1,62 +1,77 @@
 \hypertarget{_play_b_g_8h_source}{}\doxysection{Play\+BG.\+h}
-
+\mbox{\hyperlink{_play_b_g_8h}{Go to the documentation of this file.}}
 \begin{DoxyCode}{0}
-\DoxyCodeLine{1 \textcolor{preprocessor}{\#ifndef \_PLAYHEALTH\_H}}
-\DoxyCodeLine{2 \textcolor{preprocessor}{\#define \_PLAYHEALTH\_H}}
-\DoxyCodeLine{3 \textcolor{preprocessor}{\#include "{}Timer.h"{}}}
-\DoxyCodeLine{4 \textcolor{preprocessor}{\#include "{}AnimatedTexture.h"{}}}
-\DoxyCodeLine{5 \textcolor{preprocessor}{\#include "{}AudioManager.h"{}}}
-\DoxyCodeLine{6 \textcolor{preprocessor}{\#include "{}StartScreen.h"{}}}
-\DoxyCodeLine{7 \textcolor{preprocessor}{\#include <vector>}}
-\DoxyCodeLine{8 }
-\DoxyCodeLine{9 }
-\DoxyCodeLine{10 \textcolor{keyword}{class }\mbox{\hyperlink{class_play_b_g}{PlayBG}} : \textcolor{keyword}{public} GameEntity \{}
-\DoxyCodeLine{11 }
-\DoxyCodeLine{12     \textcolor{keyword}{private}:}
-\DoxyCodeLine{13         Timer* mTimer;}
-\DoxyCodeLine{14         AudioManager* mAudio;}
-\DoxyCodeLine{15 }
-\DoxyCodeLine{16         Texture* mBackground;}
-\DoxyCodeLine{17         AnimatedTexture* mAnimatedBackground;}
-\DoxyCodeLine{18 }
-\DoxyCodeLine{19         Texture* mStage;}
-\DoxyCodeLine{20         Texture* mStatus;}
-\DoxyCodeLine{21 }
-\DoxyCodeLine{22         \textcolor{keywordtype}{float} mBlinkTimer;}
-\DoxyCodeLine{23         \textcolor{keywordtype}{float} mBlinkInterval;}
-\DoxyCodeLine{24         }
-\DoxyCodeLine{25         \textcolor{keyword}{static} \textcolor{keyword}{const} \textcolor{keywordtype}{int} MAX\_MM\_TEXTURES = 2;}
-\DoxyCodeLine{26         GameEntity* mLives;}
-\DoxyCodeLine{27         Texture* mLivesTextures[MAX\_MM\_TEXTURES];}
-\DoxyCodeLine{28         \textcolor{keywordtype}{int} mTotalLives;}
+\DoxyCodeLine{1 }
+\DoxyCodeLine{11 \textcolor{preprocessor}{\#ifndef \_PLAYHEALTH\_H}}
+\DoxyCodeLine{12 \textcolor{preprocessor}{\#define \_PLAYHEALTH\_H}}
+\DoxyCodeLine{13 \textcolor{preprocessor}{\#include "{}Timer.h"{}}}
+\DoxyCodeLine{14 \textcolor{preprocessor}{\#include "{}AnimatedTexture.h"{}}}
+\DoxyCodeLine{15 \textcolor{preprocessor}{\#include "{}AudioManager.h"{}}}
+\DoxyCodeLine{16 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_start_screen_8h}{StartScreen.h}}"{}}}
+\DoxyCodeLine{17 \textcolor{preprocessor}{\#include <vector>}}
+\DoxyCodeLine{18 \textcolor{preprocessor}{\#include <gsl/util>}}
+\DoxyCodeLine{19 }
+\DoxyCodeLine{28 \textcolor{keyword}{class }\mbox{\hyperlink{class_play_b_g}{PlayBG}} : \textcolor{keyword}{public} GameEntity \{}
 \DoxyCodeLine{29 }
-\DoxyCodeLine{30         GameEntity* mFlags;}
-\DoxyCodeLine{31         std::vector<Texture*> mFlagTextures;}
-\DoxyCodeLine{32         \textcolor{keywordtype}{int} mRemainingLevels;}
-\DoxyCodeLine{33         \textcolor{keywordtype}{int} mFlagXOffset;}
-\DoxyCodeLine{34         \textcolor{keywordtype}{float} mFlagTimer;}
-\DoxyCodeLine{35         \textcolor{keywordtype}{float} mFlagInterval;}
-\DoxyCodeLine{36 }
-\DoxyCodeLine{37         \textcolor{keyword}{private}:}
+\DoxyCodeLine{30     \textcolor{keyword}{private}:}
+\DoxyCodeLine{31 }
+\DoxyCodeLine{37         Timer* mTimer;}
 \DoxyCodeLine{38 }
-\DoxyCodeLine{39             \textcolor{keywordtype}{void} ClearFlags();}
-\DoxyCodeLine{40             \textcolor{keywordtype}{void} AddNextFlag();}
-\DoxyCodeLine{41             \textcolor{keywordtype}{void} AddFlag(std::string filename, \textcolor{keywordtype}{float} widgth, \textcolor{keywordtype}{int} value);}
-\DoxyCodeLine{42 }
-\DoxyCodeLine{43     \textcolor{keyword}{public}:}
-\DoxyCodeLine{44 }
-\DoxyCodeLine{45         \mbox{\hyperlink{class_play_b_g}{PlayBG}}();}
-\DoxyCodeLine{46         \mbox{\hyperlink{class_play_b_g}{\string~PlayBG}}();}
-\DoxyCodeLine{47 }
-\DoxyCodeLine{48         \textcolor{keywordtype}{void} SetLives(\textcolor{keywordtype}{int} lives);}
-\DoxyCodeLine{49         \textcolor{keywordtype}{void} SetLevel(\textcolor{keywordtype}{int} level);}
-\DoxyCodeLine{50 }
-\DoxyCodeLine{51         \textcolor{keywordtype}{void} Update();}
+\DoxyCodeLine{44         AudioManager* mAudio;}
+\DoxyCodeLine{45 }
+\DoxyCodeLine{51         Texture* mBackground;}
 \DoxyCodeLine{52 }
-\DoxyCodeLine{53         \textcolor{keywordtype}{void} Render();}
-\DoxyCodeLine{54 }
-\DoxyCodeLine{55 \};}
-\DoxyCodeLine{56 }
-\DoxyCodeLine{57 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{58         AnimatedTexture* mAnimatedBackground;}
+\DoxyCodeLine{59 }
+\DoxyCodeLine{65         Texture* mStage;}
+\DoxyCodeLine{66 }
+\DoxyCodeLine{72         Texture* mStatus;}
+\DoxyCodeLine{73         }
+\DoxyCodeLine{79         \textcolor{keyword}{static} \textcolor{keyword}{const} \textcolor{keywordtype}{int} MAX\_MM\_TEXTURES = 2;}
+\DoxyCodeLine{80 }
+\DoxyCodeLine{86         GameEntity* mLives;}
+\DoxyCodeLine{87 }
+\DoxyCodeLine{93         Texture* mLivesTextures[MAX\_MM\_TEXTURES];}
+\DoxyCodeLine{94 }
+\DoxyCodeLine{100         \textcolor{keywordtype}{int} mTotalLives = 0;}
+\DoxyCodeLine{101 }
+\DoxyCodeLine{107         GameEntity* mFlags;}
+\DoxyCodeLine{108 }
+\DoxyCodeLine{114         \textcolor{comment}{//LO7 An iterator is an object that points to some element in a range of elements using specific operators, such as the dereference operator.}}
+\DoxyCodeLine{115         std::vector<Texture*> mFlagTextures;}
+\DoxyCodeLine{116 }
+\DoxyCodeLine{122         \textcolor{keywordtype}{int} mRemainingLevels = 0;}
+\DoxyCodeLine{123 }
+\DoxyCodeLine{129         \textcolor{keywordtype}{float} mFlagXOffset = 0.0;}
+\DoxyCodeLine{130 }
+\DoxyCodeLine{136         \textcolor{keywordtype}{float} mFlagTimer;}
+\DoxyCodeLine{137 }
+\DoxyCodeLine{143         \textcolor{keywordtype}{float} mFlagInterval;}
+\DoxyCodeLine{144 }
+\DoxyCodeLine{145         \textcolor{keyword}{private}:}
+\DoxyCodeLine{146 }
+\DoxyCodeLine{154             \textcolor{keywordtype}{void} ClearFlags() \textcolor{keyword}{noexcept};}
+\DoxyCodeLine{155 }
+\DoxyCodeLine{163             \textcolor{keywordtype}{void} AddNextFlag();}
+\DoxyCodeLine{164 }
+\DoxyCodeLine{172             \textcolor{keywordtype}{void} AddFlag(std::string filename, \textcolor{keywordtype}{float} widgth, \textcolor{keywordtype}{int} value);}
+\DoxyCodeLine{173 }
+\DoxyCodeLine{174     \textcolor{keyword}{public}:}
+\DoxyCodeLine{175 }
+\DoxyCodeLine{183         \mbox{\hyperlink{class_play_b_g_ae8d0d6d1afc1c9e15cd9e9793d16b4e0}{PlayBG}}();}
+\DoxyCodeLine{184 }
+\DoxyCodeLine{192         \textcolor{keyword}{virtual} \mbox{\hyperlink{class_play_b_g_a86c480a2c275fd9784e9129dbf34f80d}{\string~PlayBG}}();}
+\DoxyCodeLine{193 }
+\DoxyCodeLine{201         \textcolor{keywordtype}{void} \mbox{\hyperlink{class_play_b_g_a05ef9405de83bba659648ae926b4b5d4}{SetLives}}(\textcolor{keywordtype}{int} lives) \textcolor{keyword}{noexcept};}
+\DoxyCodeLine{202 }
+\DoxyCodeLine{210         \textcolor{keywordtype}{void} \mbox{\hyperlink{class_play_b_g_abbadaaf3b7e1196f6a037551e2e5e4c0}{SetLevel}}(\textcolor{keywordtype}{int} level) \textcolor{keyword}{noexcept};}
+\DoxyCodeLine{211 }
+\DoxyCodeLine{219         \textcolor{keywordtype}{void} \mbox{\hyperlink{class_play_b_g_ad5fa6d17736f267c8b0b3441f58f2afd}{Update}}();}
+\DoxyCodeLine{220 }
+\DoxyCodeLine{228         \textcolor{keywordtype}{void} \mbox{\hyperlink{class_play_b_g_aabe1f08e0f80e3508428e8a0034a8757}{Render}}();}
+\DoxyCodeLine{229 }
+\DoxyCodeLine{230 \};}
+\DoxyCodeLine{231 }
+\DoxyCodeLine{232 \textcolor{preprocessor}{\#endif}}
 
 \end{DoxyCode}
