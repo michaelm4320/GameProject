@@ -53,6 +53,13 @@ Using Visual Studio:
 # Built-With
 Visual Studio Community 2019
 
+# History
+Version 1: Title screen with one menu option for New Game
+
+Version 2: Updated title screen, added Controls menu. Created stage and player.
+
+Version 3: Added documentation for functions and variables.
+
 # Author
 Michael Martinez
 
